@@ -1,4 +1,5 @@
 <?php
+    session_start();
 $categorias = [];
 $categorias[] = 'infantil';
 $categorias[] = 'adolescente';
@@ -10,8 +11,8 @@ $nome = $_POST['nome'];
 $idade = $_POST['idade'];
 
 if(empty($nome)){
-    echo 'o nome não pode estar em branco';
-    return;
+    $_SESSION ['mensagem-erro'] = 'o nome não pode estar em branco';
+    header('location: index.php');
 }
 
 if(strlen($nome)<3){
