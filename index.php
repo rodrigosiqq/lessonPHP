@@ -1,6 +1,12 @@
 <?php
-    session_start();
+/**
+ * User: rodrigo
+ * Date: 16102022
+ * Time: 2051
+ */
+include "servicos/servicoMensagemSessao.php";
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,13 +24,13 @@
 
 <form action="script.php" method="post">
     <?php
-        $mensagemDeSucesso = isset($_SESSION['mensagem-de-sucesso']) ? $_SESSION['mensagem-de-sucesso'] : '';
+        $mensagemDeSucesso = obterMensagemSucesso();
         if(!empty($mensagemDeSucesso))
         {
             echo $mensagemDeSucesso;
         }
 
-        $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
+        $mensagemDeErro = obterMensagemErro();
         if(!empty($mensagemDeErro))
         {
             echo $mensagemDeErro;
